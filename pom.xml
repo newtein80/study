@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!--
+		spring-boot-starter-parent 에서 버전관리를 해준다. 추가되는 dependency 들은 버전을 명시하지 않아도된다.(권장)
+		- Java 1.8 as the default compiler level.
+		- UTF-8 source encoding.
+		- A Dependency Management section, inherited from the spring-boot-dependencies pom, that manages the versions of common dependencies.
+		- This dependency management lets you omit <version> tags for those dependencies when used in your own pom.
+		- An execution of the repackage goal with a repackage execution id.
+		- Sensible resource filtering.
+		- Sensible plugin configuration (exec plugin, Git commit ID, and shade).
+		- Sensible resource filtering for application.properties and application.yml including profile-specific files (for example, application-dev.properties and application-dev.yml)
+	-->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.4.0</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<groupId>com.awesome</groupId>
+	<artifactId>study</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>study</name>
+	<description>Demo project for Spring Boot</description>
+
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- reference 2.4.2. : add spring web dependency -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- 캐싱을 disable 하여 재시작없이 개발사항이 반영됨. 그리고 패키징시에는 제외됨(<optional> property) -->
+		<!-- DevToolsPropertyDefaultsPostProcessor 에 상세 설정을 볼 수 있음 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
